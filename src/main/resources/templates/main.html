@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head th:replace="fragment::header">
+</head>
+<body>
+<section class="container"> <!-- ③ -->
+    <h2>[[${title}]]</h2>
+    <h1 th:text="${title}">Title</h1>
+    <div th:text="${message}">Content</div>
+    <div th:text="${#dates.format(date)}">Date time</div>
+    <a th:href="@{'/post/list'}" role="button" class="btn btn-info">List</a> <!-- ④ -->
+    <a th:href="@{'/post/write'}">
+        <button type="button" class="btn btn-success">Write</button> <!-- ⑤ -->
+    </a>
+</section>
+<footer th:replace="fragment::footer"></footer>
+<th:block th:replace="fragment::base_script"/>
+</body>
+</html>

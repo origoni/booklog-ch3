@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<meta th:fragment="base_meta" http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta th:fragment="base_meta" http-equiv="X-UA-Compatible" content="IE=edge"/>
+<meta th:fragment="base_meta" name="viewport" content="width=device-width, initial-scale=1"/>
+
+<link th:fragment="base_link" rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css"/>
+
+<head th:fragment="title_header(title)">
+    <title th:replace="${title}">Book On Spring</title>
+    <th:block th:replace="fragment::base_meta"/>
+    <th:block th:replace="fragment::base_link"/>
+</head>
+
+<head th:fragment="header">
+    <title th:text="${title}">Title</title>
+    <th:block th:replace="fragment::base_meta"/>
+    <th:block th:replace="fragment::base_link"/>
+</head>
+
+<body>
+
+<footer class="container" th:fragment="footer">
+    <a href="http://bookonspring.com">BookOnSpring</a>
+</footer>
+
+<script th:fragment="base_script" src="/webjars/jquery/jquery.min.js"></script>
+<script th:fragment="base_script" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+
+</body>
+</html>
