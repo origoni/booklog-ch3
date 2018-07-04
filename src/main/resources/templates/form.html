@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragment::title_header(~{::title})">
+<head th:replace="_fragment::title_header(~{::title})">
     <title>Post Form</title>
 </head>
 <body>
@@ -10,36 +10,36 @@
     <form action="post.html" method="post"
           th:action="@{${#httpServletRequest.servletPath}}">
         <fieldset class="form-group">
-            <label for="formBookTitle">bookTitle</label>
+            <label for="formBookTitle">책 제목</label>
             <input id="formBookTitle" type="text" class="form-control"
                    name="bookTitle" th:field="${post.bookTitle}"
-                   placeholder="Title input"/>
+                   placeholder="Book Title"/>
             <span th:each="error : ${#fields.errors('post.bookTitle')}" th:text="' ' + ${error}"/>
         </fieldset>
         <fieldset class="form-group">
-            <label for="formSubject">subject</label>
+            <label for="formSubject">한줄 요약</label>
             <input id="formSubject" type="text" class="form-control"
                    name="subject" th:field="${post.subject}"
-                   placeholder="Subject input"/>
+                   placeholder="Subject"/>
         </fieldset>
         <fieldset class="form-group">
-            <label for="formContent">Content</label>
+            <label for="formContent">감상문</label>
             <textarea id="formContent" class="form-control" name="content"
                       rows="3" th:field="${post.content}"></textarea>
             <span th:each="error : ${#fields.errors('post.content')}" th:text="' ' + ${error}"/>
         </fieldset>
         <fieldset class="form-group">
-            <label for="formWriter">Writer</label>
+            <label for="formWriter">작성자</label>
             <input id="formWriter" type="text" class="form-control"
                    name="userName" th:field="${post.userName}"
-                   placeholder="Writer input"/>
+                   placeholder="Writer"/>
         </fieldset>
         <input type="submit" class="btn btn-primary" value="저장"/>
     </form>
 </section>
 
-<footer th:replace="fragment::footer"></footer>
-<th:block th:replace="fragment::base_script"/>
+<footer th:replace="_fragment::footer"></footer>
+<th:block th:replace="_fragment::base_script"/>
 <script type="text/javascript"> <!-- ②  -->
 $('form').submit(function (event) { <!-- ③ -->
     $('form input:text, textarea').each(function () { <!-- ④ -->

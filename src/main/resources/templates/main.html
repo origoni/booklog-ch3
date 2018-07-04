@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-
-<head th:replace="fragment::header">
-</head>
+<head th:replace="_fragment::header"/>
 <body>
 <section class="container"> <!-- ③ -->
     <h2>[[${title}]]</h2>
@@ -14,7 +12,7 @@
         <button type="button" class="btn btn-success">Write</button> <!-- ⑤ -->
     </a>
 </section>
-<footer th:replace="fragment::footer"></footer>
-<th:block th:replace="fragment::base_script"/>
+<footer th:replace="_fragment::footer"/>
+<th:block th:replace="_fragment::base_script"/>
 </body>
 </html>
