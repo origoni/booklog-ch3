@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org">
-<head th:replace="_fragment::title_header(~{::title})">
+<head th:replace="_fragment::base_head_title(~{::title})">
     <title>Post Form</title>
 </head>
 <body>
 <section class="container">
-    <h2>글쓰기 th:object="${post}"</h2>
+    <header th:replace="_fragment::site-header"></header>
+    <h2>글쓰기</h2>
     <hr/>
     <form action="post.html" method="post"
           th:action="@{${#httpServletRequest.servletPath}}">
@@ -16,6 +17,7 @@
                    placeholder="Book Title"/>
             <span th:each="error : ${#fields.errors('post.bookTitle')}" th:text="' ' + ${error}"/>
         </fieldset>
+
         <fieldset class="form-group">
             <label for="formSubject">한줄 요약</label>
             <input id="formSubject" type="text" class="form-control"
@@ -32,13 +34,13 @@
             <label for="formWriter">작성자</label>
             <input id="formWriter" type="text" class="form-control"
                    name="userName" th:field="${post.userName}"
-                   placeholder="Writer"/>
+                   placeholder="Writer ID"/>
         </fieldset>
         <input type="submit" class="btn btn-primary" value="저장"/>
     </form>
 </section>
 
-<footer th:replace="_fragment::footer"></footer>
+<footer th:replace="_fragment::site-footer"></footer>
 <th:block th:replace="_fragment::base_script"/>
 <script type="text/javascript"> <!-- ②  -->
 $('form').submit(function (event) { <!-- ③ -->

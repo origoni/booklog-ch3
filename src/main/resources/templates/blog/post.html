@@ -8,7 +8,7 @@
 </head>
 <body>
 <div class="container">
-    <header th:replace="_header::site-header"></header>
+    <header th:replace="_fragment::site-header"></header>
 
     <div class="row">
         <div class="col-md-8">
@@ -24,9 +24,9 @@
             </article>
             <hr>
 
-            <a th:href="@{'/post/list'}" class="button button-brand btn-lg btn-info mb-5 mb-lg-2">List</a>
-            <a th:href="@{/post/{postId}/edit(postId=${post.id})}" class="button button-brand btn-lg btn-warning mb-5 mb-lg-2">Edit</a>
-            <a th:href="@{'/post/'+${post.id}+'/delete'}" id="delete" class="button button-brand btn-lg btn-danger mb-5 mb-lg-2">Delete</a>
+            <a th:href="@{'/post/list'}" class="button button-brand btn btn-info mb-5 mb-lg-2">List</a>
+            <a th:href="@{/post/{postId}/edit(postId=${post.id})}" class="button button-brand btn btn-warning mb-5 mb-lg-2">Edit</a>
+            <a th:href="@{'/post/'+${post.id}+'/delete'}" id="delete" class="button button-brand btn btn-danger mb-5 mb-lg-2">Delete</a>
 
             <div id="comment_list"></div> <!-- ① -->
             <br>
@@ -43,12 +43,12 @@
             </form>
 
         </div>
-        <aside th:replace="_sidebar::blog-sidebar"></aside>
+        <aside th:replace="_fragment::blog-sidebar"></aside>
     </div>
 
 </div>
 
-<footer th:replace="_fragment::footer"></footer>
+<footer th:replace="_fragment::site-footer"></footer>
 <th:block th:replace="_fragment::base_script"/>
 <script src="/webjars/mustachejs/mustache.min.js"></script> <!-- ③ -->
 <script id="template" type="x-tmpl-mustache"> <!-- ④ -->
@@ -60,6 +60,7 @@
     </div>
 </div>
 {{/.}}
+
 
 
 
